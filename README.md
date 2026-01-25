@@ -1,1 +1,1 @@
-→ [Check the Website](https://cheekitos.github.io/ncfolio/)
+→ [Check the Website](https://ncportfolio.github.io/2026/)
