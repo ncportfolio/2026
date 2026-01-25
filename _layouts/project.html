@@ -17,9 +17,11 @@ layout: default
     </div>
 
     <div class="project-gallery">
-        <img src="{{ page.image1 | relative_url }}" alt="{{ page.title }} 01">
-        <img src="{{ page.image2 | relative_url }}" alt="{{ page.title }} 02">
-        <img src="{{ page.image3 | relative_url }}" alt="{{ page.title }} 03">
+        {% for img_path in page.images %}
+            <div class="gallery-item">
+                <img src="{{ img_path | relative_url }}" alt="{{ page.title }}" loading="lazy">
+            </div>
+        {% endfor %}
     </div>
 
     <div class="project-footer">
