@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article class="project-detail">
+    <div class="project-header">
+        <h1>{{ page.title }}</h1>
+        <div class="project-description">
+            {{ content }}
+        </div>
+    </div>
+
+    <div class="project-gallery">
+        <img src="{{ page.image1 | relative_url }}" alt="{{ page.title }} 01">
+        <img src="{{ page.image2 | relative_url }}" alt="{{ page.title }} 02">
+        <img src="{{ page.image3 | relative_url }}" alt="{{ page.title }} 03">
+    </div>
+
+    <div class="project-footer">
+        <a href="{{ '/' | relative_url }}" class="back-link">← Back to Projects</a>
+    </div>
+</article>

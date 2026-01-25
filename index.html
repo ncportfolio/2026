@@ -1,0 +1,16 @@
+---
+layout: default
+title: Home
+---
+
+<div class="project-grid">
+  {% assign sorted_projects = site.projects | sort: 'order' %}
+  {% for project in sorted_projects %}
+    <a href="{{ project.url | relative_url }}" class="project-card">
+        <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}">
+        <div class="overlay">
+          <span>{{ project.title }}</span>
+        </div>
+    </a>
+  {% endfor %}
+</div>

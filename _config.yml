@@ -1,0 +1,8 @@
+title: 2026 Portfolio
+baseurl: "/2026" # Critical for GitHub Project Pages
+url: "https://ncportfolio.github.io"
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/

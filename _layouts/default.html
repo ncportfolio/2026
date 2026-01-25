@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <h1><a href="javascript:void(0)" id="modalTrigger">{{ site.title }}</a></h1>
+    </header>
+    
+    <main>
+        {{ content }}
+    </main>
+
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <section class="about-section">
+                <h2>About</h2>
+                <p>Cinematographer and photographer based in [Your City]. Focused on capturing cinematic narratives through a minimalist lens.</p>
+            </section>
+            <section class="contact-section">
+                <h2>Contact</h2>
+                <p><a href="nicolas.allcast@gmail.com">hello@youremail.com</a></p>
+                <p><a href="https://instagram.com/nicouscous" target="_blank">Instagram</a></p>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; {{ site.time | date: "%Y" }} — Portfolio</p>
+    </footer>
+
+    <script>
+        const modal = document.getElementById("aboutModal");
+        const btn = document.getElementById("modalTrigger");
+        const span = document.getElementsByClassName("close-button")[0];
+
+        btn.onclick = function() { modal.classList.add("is-active"); }
+        span.onclick = function() { modal.classList.remove("is-active"); }
+        window.onclick = function(event) {
+            if (event.target == modal) { modal.classList.remove("is-active"); }
+        }
+    </script>
+</body>
+</html>
