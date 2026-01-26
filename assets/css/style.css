@@ -91,6 +91,7 @@ header a:hover {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.4s ease;
+    z-index: 2;
 }
 
 .project-card:hover .overlay {
@@ -105,6 +106,7 @@ header a:hover {
     background: rgba(255, 255, 255, 0.9);
     padding: 10px 20px;
     border: 1px solid #000;
+    pointer-events: none;
 }
 
 /* --- PROJECT PAGE STYLES --- */
@@ -146,7 +148,7 @@ header a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 80px; /* Cinematic spacing between shots */
+    gap: 80px; 
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -160,7 +162,7 @@ header a:hover {
 .gallery-item img {
     width: 100%;
     height: auto;
-    max-height: 90vh; /* Keeps portrait photos within screen view */
+    max-height: 90vh; 
     object-fit: contain;
     display: block;
     animation: imageFade 1.2s ease-out forwards;
@@ -253,7 +255,53 @@ footer {
     to { opacity: 1; }
 }
 
+/* --- MOBILE OPTIMIZATION: PANORAMIC PANNING --- */
 @media (max-width: 768px) {
-    .project-card { aspect-ratio: 3 / 1; }
+    .project-grid {
+        gap: 15px;
+    }
+
+    .project-card {
+        aspect-ratio: 3 / 1; /* Taller viewport for better thumb interaction */
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        cursor: grab;
+    }
+
+    /* Hide scrollbars for minimalist look */
+    .project-card::-webkit-scrollbar {
+        display: none;
+    }
+    .project-card {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .project-card img {
+        width: auto; /* Allows image to be wider than the screen */
+        height: 100%;
+        max-width: none;
+        object-fit: contain;
+        scroll-snap-align: center;
+    }
+
+    /* Keep the title centered on the screen while the image pans behind it */
+    .overlay {
+        position: sticky;
+        left: 0;
+        width: 100%;
+        opacity: 1; /* Keep title visible on mobile for clarity */
+        background: transparent;
+    }
+
+    .overlay span {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+        padding: 8px 15px;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
     .project-gallery { gap: 40px; }
 }
