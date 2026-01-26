@@ -11,4 +11,5 @@ order: 1
 gear: "Nikon D850 / Nikkor G Primes"
 ---
 
-Fashion Editorial for NYC Magazine & Blog.
+
+Fashion Editorial for Magazine & Trend Blog.
