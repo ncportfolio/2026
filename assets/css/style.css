@@ -75,9 +75,16 @@ header a:hover {
     transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.5s ease;
 }
 
-.project-card:hover img {
-    transform: scale(1.02);
-    opacity: 0.7;
+/* DESKTOP HOVER ONLY */
+@media (hover: hover) {
+    .project-card:hover img {
+        transform: scale(1.02);
+        opacity: 0.7;
+    }
+
+    .project-card:hover .overlay {
+        opacity: 1;
+    }
 }
 
 .overlay {
@@ -89,13 +96,9 @@ header a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    opacity: 0; /* Hidden by default */
     transition: opacity 0.4s ease;
     z-index: 2;
-}
-
-.project-card:hover .overlay {
-    opacity: 1;
 }
 
 .overlay span {
@@ -262,7 +265,7 @@ footer {
     }
 
     .project-card {
-        display: flex; /* Changed from block to flex for better child handling */
+        display: flex; 
         aspect-ratio: 3 / 1; 
         overflow-x: auto;
         overflow-y: hidden;
@@ -285,26 +288,12 @@ footer {
         max-width: none;
         object-fit: contain;
         scroll-snap-align: center;
-        flex-shrink: 0; /* Ensures the image maintains its panoramic width */
+        flex-shrink: 0;
     }
 
+    /* Hide overlay entirely on mobile to prevent it appearing during pans */
     .overlay {
-        position: absolute; /* Changed to absolute to float over the scrollable area */
-        left: 0;
-        width: 100vw; /* Fixes title to viewport width */
-        height: 100%;
-        opacity: 1; 
-        background: transparent;
-        pointer-events: none; /* Allows touch to pass through to the image below */
-        z-index: 5;
-    }
-
-    .overlay span {
-        font-size: 0.6rem;
-        letter-spacing: 2px;
-        padding: 8px 15px;
-        background: rgba(255, 255, 255, 0.8);
-        pointer-events: none;
+        display: none; 
     }
 
     .project-gallery { gap: 40px; }
