@@ -41,6 +41,7 @@
     </footer>
 
     <script>
+        // Modal Logic
         const modal = document.getElementById("aboutModal");
         const btn = document.getElementById("modalTrigger");
         const span = document.getElementsByClassName("close-button")[0];
@@ -50,6 +51,21 @@
         window.onclick = function(event) {
             if (event.target == modal) { modal.classList.remove("is-active"); }
         }
+
+        // Mobile Centering Logic
+        function centerMobilePanels() {
+            if (window.innerWidth <= 768) {
+                const cards = document.querySelectorAll('.project-card');
+                cards.forEach(card => {
+                    const scrollAmount = (card.scrollWidth - card.clientWidth) / 2;
+                    card.scrollLeft = scrollAmount;
+                });
+            }
+        }
+
+        // Run on load and on resize
+        window.addEventListener('load', centerMobilePanels);
+        window.addEventListener('resize', centerMobilePanels);
     </script>
 </body>
 </html>
