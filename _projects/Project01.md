@@ -12,4 +12,5 @@ order: 1
 gear: "Arri Alexa / Zeiss CP.2"
 ---
 
-French TV series focusing on cybersecurity, hacking, and digital investigations.
+
+11 Episodes TV series focusing on cybersecurity, hacking, and digital investigations.
