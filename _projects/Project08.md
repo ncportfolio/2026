@@ -13,4 +13,5 @@ order: 1
 gear: "BMPCC / Sigma Still Lenses"
 ---
 
-Documentary series in the artisanal gold mines of Burkina faso.
+
+Documentary series on the artisanal gold mines of Burkina faso.
