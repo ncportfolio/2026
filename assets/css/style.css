@@ -262,7 +262,8 @@ footer {
     }
 
     .project-card {
-        aspect-ratio: 3 / 1; /* Taller viewport for better thumb interaction */
+        display: flex; /* Changed from block to flex for better child handling */
+        aspect-ratio: 3 / 1; 
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
@@ -270,7 +271,6 @@ footer {
         cursor: grab;
     }
 
-    /* Hide scrollbars for minimalist look */
     .project-card::-webkit-scrollbar {
         display: none;
     }
@@ -280,20 +280,23 @@ footer {
     }
 
     .project-card img {
-        width: auto; /* Allows image to be wider than the screen */
+        width: auto; 
         height: 100%;
         max-width: none;
         object-fit: contain;
         scroll-snap-align: center;
+        flex-shrink: 0; /* Ensures the image maintains its panoramic width */
     }
 
-    /* Keep the title centered on the screen while the image pans behind it */
     .overlay {
-        position: sticky;
+        position: absolute; /* Changed to absolute to float over the scrollable area */
         left: 0;
-        width: 100%;
-        opacity: 1; /* Keep title visible on mobile for clarity */
+        width: 100vw; /* Fixes title to viewport width */
+        height: 100%;
+        opacity: 1; 
         background: transparent;
+        pointer-events: none; /* Allows touch to pass through to the image below */
+        z-index: 5;
     }
 
     .overlay span {
@@ -301,6 +304,7 @@ footer {
         letter-spacing: 2px;
         padding: 8px 15px;
         background: rgba(255, 255, 255, 0.8);
+        pointer-events: none;
     }
 
     .project-gallery { gap: 40px; }
