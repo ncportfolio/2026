@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "Erborian - Commercial"
+title: "Erborian"
 thumbnail: "/thumbnails/Project02.jpg"
 images:
   - "/assets/images/P2-01.jpg"
@@ -11,3 +11,4 @@ gear: "Red Epic / Zeiss CP.2"
 ---
 
 Beauty campaign and product spot shoot for makeup & skincare brand Erborian.
+
